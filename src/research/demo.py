@@ -10,7 +10,7 @@ from copilotkit.integrations.fastapi import add_fastapi_endpoint
 from copilotkit import CopilotKitRemoteEndpoint
 from copilotkit.crewai import CrewAIAgent
 
-from src.crew import ResearchCrew
+from research.crew import ResearchCrew
 
 app = FastAPI()
 sdk = CopilotKitRemoteEndpoint(

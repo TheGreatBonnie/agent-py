@@ -21,17 +21,17 @@ class ResearchCrew():
     def researcher(self) -> Agent:
         """Researcher agent"""
         return Agent(
-          config=self.agents_config['researcher'], # pylint: disable=invalid-sequence-index
+          config=self.agents_config['researcher'], # pylint: disable=invalid-sequence-index # type: ignore
           verbose=True
-        )
+        ) # type: ignore
 
     @agent
     def reporting_analyst(self) -> Agent:
         """Reporting analyst agent"""
         return Agent(
-          config=self.agents_config['reporting_analyst'], # pylint: disable=invalid-sequence-index
+          config=self.agents_config['reporting_analyst'], # pylint: disable=invalid-sequence-index # type: ignore
           verbose=True
-        )
+        ) # type: ignore
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -40,16 +40,16 @@ class ResearchCrew():
     def research_task(self) -> Task:
         """Research task"""
         return Task(
-          config=self.tasks_config['research_task'], # pylint: disable=invalid-sequence-index
-        )
+          config=self.tasks_config['research_task'], # pylint: disable=invalid-sequence-index # type: ignore
+        ) # type: ignore
 
     @task
     def reporting_task(self) -> Task:
         """Reporting task"""
         return Task(
-          config=self.tasks_config['reporting_task'], # pylint: disable=invalid-sequence-index
+          config=self.tasks_config['reporting_task'], # pylint: disable=invalid-sequence-index # type: ignore
           output_file='report.md'
-        )
+        ) # type: ignore
 
     @crew
     def crew(self) -> Crew:
@@ -58,8 +58,8 @@ class ResearchCrew():
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
-          agents=self.agents, # pylint: disable=no-member
-          tasks=self.tasks, # pylint: disable=no-member
+          agents=self.agents, # pylint: disable=no-member # type: ignore
+          tasks=self.tasks, # pylint: disable=no-member # type: ignore
           process=Process.sequential,
           verbose=True,
           chat_llm="gpt-4o"
